@@ -152,5 +152,32 @@ entriesRouter
             .catch(next)
     })
 
+entriesRouter
+    .route('/user/:user_id')
+    .all((req, res, next) => {
+        if (isNaN(parseInt(req.params.user_id))) {
+            return res.status(404).json({
+                error: { message: `Invalid id` }
+            })
+        }
+        EntriesService.getEntryByUserId(
+            req.app.get('db'),
+            req.params.user_id
+        )
+            .then(entry => {
+                if (!entry) {
+                    return res.status(404).json({
+                        error: { message: `Entry doesn't exist` }
+                    })
+                }
+                res.entry = entry
+                next()
+            })
+            .catch(next)
+    })
+    .get((req, res, next) => {
+        res.json(res.entry)
+    })
+
 
 module.exports = entriesRouter

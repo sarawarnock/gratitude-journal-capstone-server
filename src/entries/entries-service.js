@@ -28,6 +28,12 @@ const EntriesService = {
             .where('entries.id', entries_id)
             .first()
     },
+    getEntryByUserId(db, user_id) {
+        return db
+          .from('entries')
+          .select('*')
+          .where('entries.user_id', user_id)
+      },
     //relevant
     insertEntry(db, newEntry) {
         return db
