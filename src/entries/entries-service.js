@@ -5,6 +5,7 @@ const EntriesService = {
             .from('entries')
             .select(
                 'entries.id',
+                'entries.user_id',
                 'entries.title',
                 'entries.bullet_1',
                 'entries.bullet_2',
@@ -18,6 +19,7 @@ const EntriesService = {
             .from('entries')
             .select(
                 'entries.id',
+                'entries.user_id',
                 'entries.title',
                 'entries.bullet_1',
                 'entries.bullet_2',

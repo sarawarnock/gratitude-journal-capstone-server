@@ -8,6 +8,7 @@ const jsonParser = express.json()
 
 const serializeEntry = entry => ({
     id: entry.id,
+    user_id: entry.user_id,
     title: xss(entry.title),
     bullet_1: entry.bullet_1,
     bullet_2: entry.bullet_2,
