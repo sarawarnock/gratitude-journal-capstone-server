@@ -5,4 +5,5 @@ module.exports = {
     TEST_DATABASE_URL: process.env.TEST_DATABASE_URL || 'postgresql://postgres@localhost/gratitude-journal-capstone-test',
     JWT_SECRET: process.env.JWT_SECRET || 'abc234',
     JWT_EXPIRY: process.env.JWT_EXPIRY || '3h',
+    CLIENT_ORIGIN: 'https://gratitude-journal-capstone-client.vercel.app/'
 }
