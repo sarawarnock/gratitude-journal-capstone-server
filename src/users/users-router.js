@@ -38,15 +38,14 @@ usersRouter
             username
         )
             .then(hasUserWithUserName => {
-
-                console.log("hasUserWithUserName:", hasUserWithUserName);
+               // console.log("hasUserWithUserName:", hasUserWithUserName);
 
                 if (hasUserWithUserName)
                     return res.status(400).json({ error: `Username already taken` })
 
                 return UsersService.hashPassword(password)
                     .then(hashedPassword => {
-                        console.log("hashedpassword", hashedPassword);
+                        //console.log("hashedpassword", hashedPassword);
                         const newUser = {
                             username,
                             password: hashedPassword,
